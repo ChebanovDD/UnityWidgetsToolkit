@@ -22,7 +22,7 @@ You can use a counter sample to try out this approach of creating UI. The sample
 
 ## :bookmark_tabs: Contributing
 
-The package is under consideration. If I find out that the community is interested in this tool, I will consider starting development. So if you have any ideas or suggestions, welcome to [discussions](https://github.com/ChebanovDD/UnityMvvmToolkit/discussions).
+The package is under consideration. If I find out that the community is interested in this tool, I will consider starting development. So if you have any ideas or suggestions, welcome to [discussions](https://github.com/ChebanovDD/UnityWidgetsToolkit/discussions).
 
 Discussions is a place to:
 * Share ideas
