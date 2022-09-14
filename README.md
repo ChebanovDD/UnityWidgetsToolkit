@@ -11,7 +11,7 @@ https://user-images.githubusercontent.com/28132516/190197761-351d8791-7fcd-4084-
 
 ## :pencil: About
 
-The **UnityWidgetsToolkit** package will allow you to create a user interface using widgets similar to Flutter's approach, but with a built-in data binding mechanism.
+The **UnityWidgetsToolkit** will allow you to create a user interface using widgets similar to Flutter's approach, but with a built-in data binding mechanism.
 
 You can use a counter sample to try out this approach of creating UI. The sample is just a prototype to test the idea. The final solution will have a slightly different workflow.
 
