@@ -1,6 +1,6 @@
 ﻿using UnityMvvmToolkit.Core;
 
-public class MainViewModel : ViewModel
+public class CounterViewModel : ViewModel
 {
     private int _count;
     private string _header = "Widgets UI Toolkit";

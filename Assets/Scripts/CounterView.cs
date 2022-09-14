@@ -2,9 +2,9 @@
 using UnityEngine.UIElements;
 using Widgets;
 
-public class MainView : View<MainViewModel>
+public class CounterView : View<CounterViewModel>
 {
-    protected override Widget Build(MainViewModel context)
+    protected override Widget Build(CounterViewModel context)
     {
         return new Scaffold(
             backgroundColor: Color.black,
@@ -41,24 +41,18 @@ public class MainView : View<MainViewModel>
                 {
                     new FloatingActionButton(
                         child: new Icon(Icons.Plus, Color.black),
-                        onPressed: () =>
-                        {
-                            context.Count++;
-                            this.Q<Text>("CountText").SetText(context.Count.ToString());
-                        }), // FloatingActionButton
+                        onPressed: () => this.Q<Text>("CountText").SetText((++context.Count).ToString())
+                    ), // FloatingActionButton
                     new SizedBox(width: 32, height: 32),
                     new FloatingActionButton(
                         child: new Icon(Icons.Minus, Color.black),
-                        onPressed: () =>
-                        {
-                            context.Count--;
-                            this.Q<Text>("CountText").SetText(context.Count.ToString());
-                        }) // FloatingActionButton
+                        onPressed: () => this.Q<Text>("CountText").SetText((--context.Count).ToString())
+                    ) // FloatingActionButton
                 }
             ) // Stack
         ); // Scaffold
     }
 
-    public new class UxmlFactory : UxmlFactory<MainView, UxmlTraits> { }
+    public new class UxmlFactory : UxmlFactory<CounterView, UxmlTraits> { }
     public new class UxmlTraits : VisualElement.UxmlTraits { }
 }
