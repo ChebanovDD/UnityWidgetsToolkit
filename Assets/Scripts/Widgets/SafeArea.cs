@@ -8,7 +8,9 @@ namespace Widgets
     {
         private readonly Widget _child;
 
-        public SafeArea(Widget child = null)
+        public SafeArea(
+            Widget child = null
+        )
         {
             _child = child;
         }
@@ -18,12 +20,12 @@ namespace Widgets
             var safeArea = Screen.safeArea;
 
             // TODO: Bottom & Right
-        
+
             style.marginTop = safeArea.y;
             style.marginLeft = safeArea.x;
             style.width = style.height = Length.Percent(100);
 
-            this.AddChild(_child);
+            this.AddWidget(_child);
 
             return this;
         }

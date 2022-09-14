@@ -7,12 +7,15 @@ namespace Widgets
         private readonly float _width;
         private readonly float _height;
 
-        public SizedBox(float width = 0, float height = 0)
+        public SizedBox(
+            float width = 0,
+            float height = 0
+        )
         {
             _width = width;
             _height = height;
         }
-        
+
         public override VisualElement Build()
         {
             style.width = _width;

@@ -5,7 +5,7 @@ namespace Extensions
 {
     public static class VisualElementExtensions
     {
-        public static T AddChild<T>(this T visualElement, Widget child) where T : VisualElement
+        public static T AddWidget<T>(this T visualElement, Widget child) where T : VisualElement
         {
             if (child != null)
             {

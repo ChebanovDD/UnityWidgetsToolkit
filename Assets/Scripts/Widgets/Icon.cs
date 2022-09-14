@@ -6,6 +6,7 @@ namespace Widgets
 {
     public enum Icons
     {
+        None,
         Plus,
         Minus
     }
@@ -15,7 +16,10 @@ namespace Widgets
         private readonly Icons _icon;
         private readonly Color _color;
 
-        public Icon(Icons icon, Color color = default)
+        public Icon(
+            Icons icon = Icons.None,
+            Color color = default
+        )
         {
             _icon = icon;
             _color = color == default ? Color.white : color;
@@ -23,6 +27,11 @@ namespace Widgets
 
         public override VisualElement Build()
         {
+            if (_icon == Icons.None)
+            {
+                return this;
+            }
+
             style.width = 96;
             style.height = 96;
             style.backgroundImage.Release();

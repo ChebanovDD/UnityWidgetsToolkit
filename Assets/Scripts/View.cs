@@ -1,7 +1,9 @@
-﻿using UnityEngine.UIElements;
+﻿using System.ComponentModel;
+using Extensions;
+using UnityEngine.UIElements;
 using Widgets;
 
-public abstract class View<TBindingContext> : VisualElement where TBindingContext : new()
+public abstract class View<TBindingContext> : VisualElement where TBindingContext : INotifyPropertyChanged, new()
 {
     protected View()
     {
@@ -12,10 +14,14 @@ public abstract class View<TBindingContext> : VisualElement where TBindingContex
 
     private void OnLayoutCalculated(GeometryChangedEvent e)
     {
-        UnregisterCallback<GeometryChangedEvent>(OnLayoutCalculated);
-        
-        style.width = style.height = Length.Percent(100);
-        
-        Add(Build(new TBindingContext()).Build());
+        try
+        {
+            style.width = style.height = Length.Percent(100);
+            this.AddWidget(Build(new TBindingContext()));
+        }
+        finally
+        {
+            UnregisterCallback<GeometryChangedEvent>(OnLayoutCalculated);
+        }
     }
 }

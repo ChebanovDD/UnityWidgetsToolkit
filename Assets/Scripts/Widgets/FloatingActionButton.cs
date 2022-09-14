@@ -9,7 +9,10 @@ namespace Widgets
         private readonly Widget _child;
         private readonly Action _onPressed;
 
-        public FloatingActionButton(Widget child = null, Action onPressed = null)
+        public FloatingActionButton(
+            Widget child = null,
+            Action onPressed = null
+        )
         {
             _child = child;
             _onPressed = onPressed;
@@ -34,7 +37,7 @@ namespace Widgets
                 }
             };
 
-            button.AddChild(_child);
+            button.AddWidget(_child);
 
             if (_onPressed != null)
             {
@@ -42,7 +45,7 @@ namespace Widgets
             }
 
             Add(button);
-        
+
             return this;
         }
     }

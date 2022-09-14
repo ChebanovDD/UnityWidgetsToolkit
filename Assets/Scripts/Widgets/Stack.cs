@@ -8,7 +8,10 @@ namespace Widgets
         private readonly Widget[] _children;
         private readonly FlexDirection _flexDirection;
 
-        public Stack(Widget[] children = null, FlexDirection flexDirection = default)
+        public Stack(
+            Widget[] children = null,
+            FlexDirection flexDirection = default
+        )
         {
             _children = children;
             _flexDirection = flexDirection;
@@ -16,16 +19,16 @@ namespace Widgets
 
         public override VisualElement Build()
         {
-            style.flexDirection = _flexDirection;
-        
             if (_children == null)
             {
                 return this;
             }
 
+            style.flexDirection = _flexDirection;
+
             foreach (var child in _children)
             {
-                this.AddChild(child);
+                this.AddWidget(child);
             }
 
             return this;

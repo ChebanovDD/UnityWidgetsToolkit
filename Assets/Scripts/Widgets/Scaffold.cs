@@ -33,8 +33,8 @@ namespace Widgets
                 _floatingActionButton.style.bottom = 64;
             }
 
-            this.AddChild(_body);
-            this.AddChild(_floatingActionButton);
+            this.AddWidget(_body);
+            this.AddWidget(_floatingActionButton);
 
             return this;
         }
