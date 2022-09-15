@@ -6,16 +6,24 @@ namespace Widgets
 {
     public class FloatingActionButton : Widget
     {
+        private const float DefaultSize = 192;
+
         private readonly Widget _child;
         private readonly Action _onPressed;
+        private readonly float _width;
+        private readonly float _height;
 
         public FloatingActionButton(
             Widget child = null,
-            Action onPressed = null
+            Action onPressed = null,
+            float width = DefaultSize,
+            float height = DefaultSize
         )
         {
             _child = child;
             _onPressed = onPressed;
+            _width = width;
+            _height = height;
         }
 
         public override VisualElement Build()
@@ -26,8 +34,8 @@ namespace Widgets
             {
                 style =
                 {
-                    width = 192,
-                    height = 192,
+                    width = _width,
+                    height = _height,
                     borderTopLeftRadius = borderRadius,
                     borderTopRightRadius = borderRadius,
                     borderBottomLeftRadius = borderRadius,
@@ -37,13 +45,12 @@ namespace Widgets
                 }
             };
 
-            button.AddWidget(_child);
-
             if (_onPressed != null)
             {
                 button.clicked += _onPressed;
             }
 
+            button.AddWidget(_child);
             Add(button);
 
             return this;
