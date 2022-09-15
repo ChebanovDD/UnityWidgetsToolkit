@@ -6,19 +6,27 @@ namespace Widgets
 {
     public class Scaffold : Widget
     {
+        private const float DefaultButtonDistance = 64;
+
         private readonly Widget _body;
         private readonly Color _backgroundColor;
         private readonly Widget _floatingActionButton;
+        private readonly float _floatingActionButtonRight;
+        private readonly float _floatingActionButtonBottom;
 
         public Scaffold(
             Widget body = null,
             Color backgroundColor = default,
-            Widget floatingActionButton = null
+            Widget floatingActionButton = null,
+            float floatingActionButtonRight = DefaultButtonDistance,
+            float floatingActionButtonBottom = DefaultButtonDistance
         )
         {
             _body = body;
             _backgroundColor = backgroundColor == default ? default : backgroundColor;
             _floatingActionButton = floatingActionButton;
+            _floatingActionButtonRight = floatingActionButtonRight;
+            _floatingActionButtonBottom = floatingActionButtonBottom;
         }
 
         public override VisualElement Build()
@@ -29,8 +37,8 @@ namespace Widgets
             if (_floatingActionButton != null)
             {
                 _floatingActionButton.style.position = Position.Absolute;
-                _floatingActionButton.style.right = 64;
-                _floatingActionButton.style.bottom = 64;
+                _floatingActionButton.style.right = _floatingActionButtonRight;
+                _floatingActionButton.style.bottom = _floatingActionButtonBottom;
             }
 
             this.AddWidget(_body);
