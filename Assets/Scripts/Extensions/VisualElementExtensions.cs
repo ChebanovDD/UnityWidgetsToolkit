@@ -5,11 +5,11 @@ namespace Extensions
 {
     public static class VisualElementExtensions
     {
-        public static T AddWidget<T>(this T visualElement, Widget child) where T : VisualElement
+        public static T AddWidget<T>(this T visualElement, Widget widget) where T : VisualElement
         {
-            if (child != null)
+            if (widget != null)
             {
-                visualElement.Add(child.Build());
+                visualElement.Add(widget.Build());
             }
 
             return visualElement;
